@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_161654) do
+ActiveRecord::Schema.define(version: 2021_01_20_160745) do
 
-  create_table "movies", force: :cascade do |t|
-    t.string "title"
-    t.string "genre"
-    t.date "release_date"
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.date "release_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id", null: false
+    t.index ["genre_id"], name: "index_movies_on_genre_id"
+  end
+
+  add_foreign_key "movies", "genres"
 end

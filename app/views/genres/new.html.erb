@@ -1,0 +1,22 @@
+<h1>Create Genre</h1>
+
+<%= form_for @genre do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.fields_for :movies, @genre.movies do |m| %>
+    <br>
+    <div>
+      <%= m.label :title %>
+      <%= m.text_field :title %>
+    </div>
+    <div>
+      <%= m.label :release_date %>
+      <%= m.date_field :release_date %>
+    </div>
+  <% end %>
+  <br><br>
+  <%= f.submit "Create Genre" %>
+<% end %>

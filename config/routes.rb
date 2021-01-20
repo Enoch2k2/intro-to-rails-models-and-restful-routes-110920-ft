@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :genres
   root(to: "static#home")
 
   # Restful Routes for Movies
