@@ -14,12 +14,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
 
-  <body class="grey lighten-4">
-
-    <%= render partial: 'layouts/nav', locals: { navbar_color: "indigo darken-3"} %>
-    <%= render 'layouts/errors' %>
+  <body class="teal lighten-4">
     <div class="container">
       <%= yield %>
+      <ul>
+        <li><%= link_to "Movies", movies_path %></li>
+      </ul>
     </div>
   </body>
 </html>

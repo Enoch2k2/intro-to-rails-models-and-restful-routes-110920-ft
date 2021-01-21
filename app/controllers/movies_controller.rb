@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :destroy]
+  layout "movies_layout"
 
   def index
     @movies = Movie.all
