@@ -1,27 +1,3 @@
 <h1>Create Movies</h1>
 
-<%= form_for @movie do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :release_date %>
-    <%= f.date_field :release_date %>
-  </div>
-
-  <h3>Select Genre</h3>
-  <div>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "Select Genre" %>
-  </div>
-
-  <h3>Create Genre</h3>
-  <%= f.fields_for :genre, @movie.build_genre do |gb| %>
-    <div>
-      <%= gb.label :name %>
-      <%= gb.text_field :name %>
-    </div>
-  <% end %>
-  <br><br>
-  <%= f.submit "Create Movie" %>
-<% end %>
+<%= render partial: "form", locals: { movie: @movie, button_name: "Create Movie" } %>

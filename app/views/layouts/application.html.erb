@@ -10,20 +10,10 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><%= link_to("Home", root_path) %></li>
-        <li><%= link_to("Movies", movies_path) %></li>
-        <li><%= link_to("Create Movie", new_movie_path) %></li>
-      </ul>
-    </nav>
-    <% if flash[:error] %>
-      <% flash[:error].each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-    <% end %>
 
-    <%= content_tag("p", flash[:notice]) if flash[:notice] %>
+    <%= render 'layouts/nav' %>
+    <%= render 'layouts/errors' %>
+    
     <%= yield %>
   </body>
 </html>
