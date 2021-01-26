@@ -1,0 +1,16 @@
+<h1>Nested Route for New</h1>
+
+<%= form_for [@genre, @movie] do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :release_date %>
+    <%= f.date_field :release_date %>
+  </div>
+
+  <%= f.hidden_field :genre_id %>
+
+  <%= f.submit "Create Movie" %>
+<% end %>

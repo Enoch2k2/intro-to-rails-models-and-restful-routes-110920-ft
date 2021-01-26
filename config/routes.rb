@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
-  resources :genres
   root(to: "static#home")
-
+  
   # Restful Routes for Movies
   resources :movies
+  resources :genres do
+    resources :movies, only: [:new, :create, :index]
+  end
   # get("/movies", to: "movies#index", as: "movies_index") # index
   # get "/movies/new" # new
   # get "/movies/:id" # show

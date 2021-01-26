@@ -1,4 +1,8 @@
-<h1>List Movies</h1>
+<h1>List Movies<%= " for #{@genre.name}" if @genre %></h1>
+
+<% if @genre %>
+  <p><%= link_to "Create Movie For #{@genre.name}", new_genre_movie_path(@genre) %></p>
+<% end %>
 
 <ul>
   <%= render @movies %>
