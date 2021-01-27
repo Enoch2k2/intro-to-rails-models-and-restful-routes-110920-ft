@@ -1,0 +1,14 @@
+<h3>Signup</h3>
+
+<%= form_for @user, url: signup_path do |f| %>
+  <div class="input-field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+  <div class="input-field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit "Signup", class: "btn-small indigo darken-3" %>
+<% end %>
